@@ -1,0 +1,14 @@
+{
+  "name": "botkit",
+  "version": "1.0.0",
+  "description": "Node utility for bot creation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ongair",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "mongoose": "^4.9.0"
+  }
+}

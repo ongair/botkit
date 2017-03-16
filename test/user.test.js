@@ -33,4 +33,13 @@ describe('It can handle users', () => {
         expect(user.metadata).to.equal(null)
       })
   })
+
+  it('Should be able to save and retrieve metadata attributes', () => {
+    let user = new User({ contactId: 1, name: 'James' })
+
+    expect(user.get('accepted')).to.equal(undefined)
+    user.set('accepted', true)
+    expect(user.set('accepted', true))
+    expect(user.get('accepted')).to.equal(true)
+  })
 })

@@ -7,8 +7,6 @@ const User = require('../lib/user.js')
 const Request  = require('../lib/request.js')
 const mongoose = require('mongoose')
 
-mongoose.Promise = global.Promise
-
 describe('It can handle users', () => {
 
   const req = { body: { notification_type: 'MessageReceived', text: 'Hi', name: 'Lily', external_contact_id: 'contactId', id: 'messageId', account_type: 'MessengerV2', account: '1234567890' } }

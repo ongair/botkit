@@ -1,4 +1,5 @@
 const Step = require('../lib/step.js')
+const { EntryStep } = require('../lib/step_type.js')
 const Phrase = require('../lib/phrase.js')
 const chai = require('chai')
 const { expect } = chai
@@ -6,6 +7,12 @@ const { expect } = chai
 
 describe('Steps have both entry and exit criteria', () => {
 
+  it('can enter any step that has no input criteria', () => {
+    const step = new Step(null, null)
+
+    expect(step.enter('anything')).to.be.true
+    expect(step.leave(null)).to.be.true
+  })
 
   it('A step has entry criteria which is function', () => {
 
@@ -22,5 +29,15 @@ describe('Steps have both entry and exit criteria', () => {
     const step = new Step(entry, exit)
     expect(step.enter('TwinPlus')).to.be.true
     expect(step.leave('yup')).to.be.true
+  })
+
+  describe('Pre-defined steps', () => {
+
+    it('Can handle an entry step which has a set of keywords',() => {
+
+      const entry = new EntryStep(['KeyWord'])
+
+      expect(entry.enter('anything')).to.be.true
+    })
   })
 })

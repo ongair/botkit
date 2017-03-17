@@ -8,7 +8,7 @@ const { expect } = chai
 describe('Steps have both entry and exit criteria', () => {
 
   it('can enter any step that has no input criteria', () => {
-    const step = new Step(null, null)
+    const step = new Step('begin',null, null)
 
     expect(step.enter('anything')).to.be.true
     expect(step.leave(null)).to.be.true
@@ -26,7 +26,7 @@ describe('Steps have both entry and exit criteria', () => {
       return phrase.matches(input)
     }
 
-    const step = new Step(entry, exit)
+    const step = new Step('1',entry, exit)
     expect(step.enter('TwinPlus')).to.be.true
     expect(step.leave('yup')).to.be.true
   })
@@ -35,7 +35,7 @@ describe('Steps have both entry and exit criteria', () => {
 
     it('Can handle an entry step which has a set of keywords',() => {
 
-      const entry = new EntryStep(['KeyWord'])
+      const entry = new EntryStep('start',['KeyWord'])
 
       expect(entry.enter('anything')).to.be.true
     })

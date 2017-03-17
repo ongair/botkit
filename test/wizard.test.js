@@ -11,11 +11,10 @@ describe('A wizard is a series of steps that are progressed based on input', () 
   it('Can start a wizard by evaluating the first step', () => {
 
     let steps = [
-      new EntryStep(['Begin', 'Start'])
+      new EntryStep('begin',['Begin', 'Start'])
     ]
 
     const basicWizard = new Wizard(steps)
-
     expect(basicWizard.begin('begin')).to.be.true
   })
 })

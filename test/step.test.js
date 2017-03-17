@@ -1,4 +1,5 @@
 const Step = require('../lib/step.js')
+const Response = require('../lib/response.js')
 const { EntryStep } = require('../lib/step_type.js')
 const Phrase = require('../lib/phrase.js')
 const chai = require('chai')
@@ -33,11 +34,17 @@ describe('Steps have both entry and exit criteria', () => {
 
   describe('Pre-defined steps', () => {
 
-    it('Can handle an entry step which has a set of keywords',() => {
-
-      const entry = new EntryStep('start',['KeyWord'])
-
+    it('Can handle an entry step which has a set of keywords',() => {    
+      let entry = new EntryStep('start',['KeyWord'])
       expect(entry.enter('anything')).to.be.true
+    })
+
+    it('Can get user responses', () => {
+
+      let entry = new EntryStep('start', ['KeyWord'], new Response(['Hi']))
+      let messages = entry.getResponse({ name: 'me' })
+
+      expect(messages.length).to.eql(1)
     })
   })
 })

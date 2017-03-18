@@ -1,4 +1,4 @@
-const User = require('./lib/user.js')
+// const User = require('./lib/user.js')
 const Request = require('./lib/request.js')
 const Response = require('./lib/response.js')
 const Wizard = require('./lib/wizard.js')
@@ -7,7 +7,7 @@ const Phrase = require('./lib/phrase.js')
 const { EntryStep } = require('./lib/step_type.js')
 
 module.exports = {
-  User: User,
+  // User: User,
   Request: Request,
   Wizard: Wizard,
   Step: Step,

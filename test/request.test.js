@@ -18,5 +18,7 @@ describe('It can parse requests', () => {
     expect(request.source).to.equal('1234567890')
     expect(request.messageId).to.equal('messageId')
 
+    expect(request.isIncomingMessage())
+
   })
 })

@@ -3,6 +3,7 @@ const Request = require('./lib/request.js')
 const Response = require('./lib/response.js')
 const Wizard = require('./lib/wizard.js')
 const Step = require('./lib/step.js')
+const Message = require('./lib/message.js')
 const Phrase = require('./lib/phrase.js')
 const { EntryStep } = require('./lib/step_type.js')
 
@@ -13,5 +14,6 @@ module.exports = {
   Step: Step,
   EntryStep: EntryStep,
   Phrase: Phrase,
-  Response: Response
+  Response: Response,
+  Message: Message
 }

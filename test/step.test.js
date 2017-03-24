@@ -1,50 +1,42 @@
 const Step = require('../lib/step.js')
-const Response = require('../lib/response.js')
-const { EntryStep } = require('../lib/step_type.js')
-const Phrase = require('../lib/phrase.js')
+const Message = require('../lib/message.js')
+
 const chai = require('chai')
 const { expect } = chai
 
 
-describe('Steps have both entry and exit criteria', () => {
+describe('Steps', () => {
 
-  it('can enter any step that has no input criteria', () => {
-    const step = new Step('begin',null, null)
-
-    expect(step.enter('anything')).to.be.true
-    expect(step.leave(null)).to.be.true
+  let first = new Step('1', (user,input) => {
+    return new Promise((resolve, reject) => {
+      if (input == '2')
+        resolve({ key: '2', messages: [ new Message(user, "Hi") ], metadata: [ { key: 'age', value: 20 }] })
+      else
+        resolve({ key: '1', messages: [ new Message(user, "Say what?")]})
+    })
   })
 
-  it('A step has entry criteria which is function', () => {
+  let user = { contactId: '1' }
 
-    const entry = (input) => {
-      let phrase = new Phrase('cta', ['TwinPlus', 'Learn'])
-      return phrase.matches(input)
-    }
+  it('If a step is successful it returns the key of the next step', (done) => {
 
-    const exit = (input) => {
-      let phrase = new Phrase('yes', ['Yes', 'Yeah', 'yup'])
-      return phrase.matches(input)
-    }
+    first.onEnter(user, '2')
+      .then(response => {
+        let { key } = response
 
-    const step = new Step('1',entry, exit)
-    expect(step.enter('TwinPlus')).to.be.true
-    expect(step.leave('yup')).to.be.true
+        expect(key).to.be.equal('2')
+        done()
+      })
   })
 
-  describe('Pre-defined steps', () => {
+  it('If a step is unsuccessful it remains in the same step', (done) => {
 
-    it('Can handle an entry step which has a set of keywords',() => {    
-      let entry = new EntryStep('start',['KeyWord'])
-      expect(entry.enter('anything')).to.be.true
-    })
+    first.onEnter(user, 'wrong')
+      .then(response => {
+        let { key } = response
 
-    it('Can get user responses', () => {
-
-      let entry = new EntryStep('start', ['KeyWord'], new Response(['Hi']))
-      let messages = entry.getResponse({ name: 'me' })
-
-      expect(messages.length).to.eql(1)
-    })
+        expect(key).to.be.equal('1')
+        done()
+      })
   })
 })

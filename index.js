@@ -9,6 +9,6 @@ module.exports = {
   Request: Request,
   Wizard: Wizard,
   Step: Step,
-  FuzzyStep: FuzzyStep
+  FuzzyStep: FuzzyStep,
   Message: Message
 }

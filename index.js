@@ -1,19 +1,14 @@
-// const User = require('./lib/user.js')
-const Request = require('./lib/request.js')
-const Response = require('./lib/response.js')
-const Wizard = require('./lib/wizard.js')
-const Step = require('./lib/step.js')
-const Message = require('./lib/message.js')
-const Phrase = require('./lib/phrase.js')
-const { EntryStep } = require('./lib/step_type.js')
+// const User = require('./lib/user')
+const Request = require('./lib/request')
+const Wizard = require('./lib/wizard')
+const Step = require('./lib/step')
+const FuzzyStep = require('./lib/fuzzy_step')
+const Message = require('./lib/message')
 
 module.exports = {
-  // User: User,
   Request: Request,
   Wizard: Wizard,
   Step: Step,
-  EntryStep: EntryStep,
-  Phrase: Phrase,
-  Response: Response,
+  FuzzyStep: FuzzyStep
   Message: Message
 }

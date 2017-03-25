@@ -17,4 +17,9 @@ describe('Outgoing messages', () => {
     expect(message.text).to.equal("Hi Alex Jones")
   })
 
+  it("Can handle a null user", () => {
+    let msg = new Message(null, "Hi {{first_name}}")
+    expect(msg.text).to.equal("Hi {{first_name}}")
+  })
+
 })

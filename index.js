@@ -4,11 +4,15 @@ const Wizard = require('./lib/wizard')
 const Step = require('./lib/step')
 const FuzzyStep = require('./lib/fuzzy_step')
 const Message = require('./lib/message')
+const EmailStep = require('./lib/email')
+const PhoneStep = require('./lib/phone')
 
 module.exports = {
   Request: Request,
   Wizard: Wizard,
   Step: Step,
   FuzzyStep: FuzzyStep,
-  Message: Message
+  Message: Message,
+  Email: EmailStep,
+  Phone: PhoneStep
 }

@@ -18,5 +18,5 @@ module.exports = {
   Email: EmailStep,
   Phone: PhoneStep,
   Option: Option,
-  Menu: Menu
+  Menu: MenuStep
 }

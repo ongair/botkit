@@ -6,6 +6,8 @@ const FuzzyStep = require('./lib/fuzzy_step')
 const Message = require('./lib/message')
 const EmailStep = require('./lib/steps/email')
 const PhoneStep = require('./lib/steps/phone')
+const Option = require('./lib/option')
+const Menu = require('./lib/menu')
 
 module.exports = {
   Request: Request,
@@ -14,5 +16,7 @@ module.exports = {
   FuzzyStep: FuzzyStep,
   Message: Message,
   Email: EmailStep,
-  Phone: PhoneStep
+  Phone: PhoneStep,
+  Option: Option,
+  Menu: Menu
 }

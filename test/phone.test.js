@@ -1,4 +1,3 @@
-// const botkit = require('ongair-botkit')
 const Message = require('../lib/message')
 const PhoneStep = require('../lib/steps/phone')
 const chai = require('chai')

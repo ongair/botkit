@@ -14,6 +14,6 @@ describe('Menu steps', () => {
     let menu = new Menu('menu', [ forex, loan ])
 
     expect(menu.getAction('Get Forex Rates')).to.be.eql('forex')
-    expect(menu.getAction('Talk to support')).to.be.eql('unknown')
+    expect(menu.getAction('Talk to support')).to.be.eql('menu')
   })
 })

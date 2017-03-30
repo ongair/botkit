@@ -1,6 +1,6 @@
 {
   "name": "ongair-botkit",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "Node utility for bot creation",
   "directories": {
     "lib": "./lib"

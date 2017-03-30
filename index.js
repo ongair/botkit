@@ -9,6 +9,7 @@ const PhoneStep = require('./lib/steps/phone')
 const YesNoStep = require('./lib/steps/yesno')
 const Option = require('./lib/option')
 const MenuStep = require('./lib/menu')
+const FieldStep = require('./lib/field')
 
 
 module.exports = {
@@ -21,5 +22,6 @@ module.exports = {
   Phone: PhoneStep,
   Option: Option,
   Menu: MenuStep,
-  YesNoStep: YesNoStep
+  YesNoStep: YesNoStep,
+  FieldStep: FieldStep
 }

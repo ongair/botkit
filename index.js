@@ -7,9 +7,9 @@ const Message = require('./lib/message')
 const EmailStep = require('./lib/steps/email')
 const PhoneStep = require('./lib/steps/phone')
 const YesNoStep = require('./lib/steps/yesno')
+const FieldStep = require('./lib/steps/field')
 const Option = require('./lib/option')
 const MenuStep = require('./lib/menu')
-const FieldStep = require('./lib/field')
 
 
 module.exports = {

@@ -6,7 +6,7 @@ const { expect } = chai
 describe('The sign up step', () => {
 
   let user = { name: 'Alex', contactId: '2' }
-  let step = new FieldStep('name','end',"Thanks", ["Yes", "No"])
+  let step = new FieldStep('name','name','end',"Thanks", ["Yes", "No"])
 
   it('Can save a name', (done) => {
 
@@ -19,7 +19,7 @@ describe('The sign up step', () => {
         expect(key).to.be.equal('end')
         expect(metadata).to.be.eql(meta)
         expect(messages).to.be.eql(expected)
-        
+
         done()
       })
   })

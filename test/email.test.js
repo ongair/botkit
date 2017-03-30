@@ -6,7 +6,7 @@ const { expect } = chai
 describe('The sign up step', () => {
 
   let user = { name: 'Alex', contactId: '2' }
-  let step = new EmailStep('email','end','Thanks. I’ll forward your details and someone will be in touch shortly. Have a great day!')
+  let step = new EmailStep('email','end','Thanks. I’ll forward your details and someone will be in touch shortly. Have a great day!', 'Sorry, please check that email address again', [":-)", ":-("])
 
   it('Can send a email', (done) => {
 
@@ -14,9 +14,13 @@ describe('The sign up step', () => {
       .then(response => {
         let { key, messages, metadata } = response
 
+        let expected = [
+          new Message(user, "Thanks. I’ll forward your details and someone will be in touch shortly. Have a great day!", [":-)", ":-("])
+        ]
+
         expect(key).to.be.equal('end')
         expect(metadata).to.be.eql([{ key: 'email', value: 'sendmespam@gmail.com'}])
-        expect(messages[0].text).to.be.equal("Thanks. I’ll forward your details and someone will be in touch shortly. Have a great day!")
+        expect(messages).to.be.eql(expected)
 
         done()
       })

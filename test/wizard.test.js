@@ -73,7 +73,7 @@ describe('The wizard base class', () => {
           })
         }
 
-        onExit(key) {
+        onExit(user, key) {
           if (key == 'next')
             exited = true
         }

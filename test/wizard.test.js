@@ -1,33 +1,4 @@
-// const Step = require('../lib/step.js')
-// const Wizard = require('../lib/wizard.js')
-// const Response = require('../lib/response.js')
-// const { EntryStep } = require('../lib/step_type.js')
-//
-// const chai = require('chai')
-// const { expect } = chai
-//
-//
-// describe('A wizard is a series of steps that are progressed based on input', () => {
-//
-//   let entry = new EntryStep('begin',['Begin', 'Start'])
-//   let finish = new EntryStep('end', ['End'])
-//   let steps = [ entry, finish ]
-//
-//   const basicWizard = new Wizard(steps)
-//
-//   it('Can get a step by key', () => {
-//     let found = basicWizard.getStep('end')
-//     expect(found).to.eql(finish)
-//   })
-//
-//   it('Can start a wizard by evaluating the first step', () => {
-//     expect(basicWizard.begin('begin')).to.be.true
-//   })
-// })
-
 const Wizard = require('../lib/wizard')
-// const ProductWizard = require('../../app/product')
-// const { Step, Message } = require('../../app/step')
 const Step = require('../lib/step')
 const Message = require('../lib/step')
 const chai = require('chai')
@@ -87,5 +58,35 @@ describe('The wizard base class', () => {
         })
     })
 
+    it('Executes the onExit after completing the step progression', (done) => {
+
+      let exited = false
+      class CanExit extends Step {
+
+        constructor() {
+          super('exit')
+        }
+
+        onEnter(user, input) {
+          return new Promise((resolve, reject) => {
+            resolve({ key: 'next' })
+          })
+        }
+
+        onExit(key) {
+          if (key == 'next')
+            exited = true
+        }
+      }
+      user.state = 'exit'
+      wizard = new Wizard(user, [ new CanExit()])
+      // wizard.onEnter()
+      wizard.progress('Correct')
+        .then(response => {
+
+          expect(exited).to.be.true
+          done()
+        })
+    })
   })
 })

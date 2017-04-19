@@ -10,6 +10,7 @@ const YesNoStep = require('./lib/steps/yesno')
 const FieldStep = require('./lib/steps/field')
 const Option = require('./lib/option')
 const MenuStep = require('./lib/menu')
+const { respond, version } = require('./lib/bot')
 
 
 module.exports = {
@@ -23,5 +24,7 @@ module.exports = {
   Option: Option,
   Menu: MenuStep,
   YesNoStep: YesNoStep,
-  FieldStep: FieldStep
+  FieldStep: FieldStep,
+  version: version,
+  respond: respond
 }

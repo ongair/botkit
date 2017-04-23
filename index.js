@@ -11,6 +11,7 @@ const FieldStep = require('./lib/steps/field')
 const Option = require('./lib/option')
 const MenuStep = require('./lib/menu')
 const { respond, version } = require('./lib/bot')
+const { User } = require('./lib/user')
 
 
 module.exports = {
@@ -26,5 +27,6 @@ module.exports = {
   YesNoStep: YesNoStep,
   FieldStep: FieldStep,
   version: version,
-  respond: respond
+  respond: respond,
+  User: User,
 }

@@ -10,7 +10,7 @@ describe('The wizard base class', () => {
 
     let user = { state: 'unknown', name: 'Trevor', contactId: 'Me', setMeta: (key, value) => { } }
 
-    let wizard = new Wizard(user,
+    let wizard = new Wizard(null,
       [
         new Step('1', (user,input) => {
           return new Promise((resolve, reject) => {
@@ -23,6 +23,8 @@ describe('The wizard base class', () => {
           })
         })
       ])
+
+    wizard.load(user)
 
     it('Handles an invalid state', (done) => {
       wizard.progress('Wassup')

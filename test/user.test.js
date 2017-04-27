@@ -52,6 +52,9 @@ describe('It can handle users', () => {
     user.set('accepted', false)
     expect(user.get('accepted')).to.equal(false)
 
+    user.setMeta('accepted', true)
+    expect(user.getMeta('accepted')).to.equal(true)
+
     user.clearMeta()
     expect(user.metadata).to.equal(null)
   })

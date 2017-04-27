@@ -41,9 +41,12 @@ describe('It can handle users', () => {
   // })
 
   it('Should be able to save and retrieve metadata attributes', () => {
-    let meta = { metadata: "{\"accepted\":true}" }
+    let meta = "{\"accepted\":true}"
     let user = new User()
-    user.data = meta
+    user.metadata = meta
+
+    user.setState('new')
+    expect(user.getState()).to.equal('new')
 
     expect(user.get('accepted')).to.equal(true)
     user.set('accepted', false)

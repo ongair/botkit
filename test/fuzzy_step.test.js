@@ -27,7 +27,7 @@ describe('Fuzzy Steps', () => {
   it('Can check for yes and no', (done) => {
 
     let step = new SampleFuzzyStep()
-    step.onEnter(null, 'Y')
+    step.onEnter(null, 'yup')
       .then(response => {
         let { key } = response
 

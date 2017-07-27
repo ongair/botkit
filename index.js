@@ -12,7 +12,7 @@ const Option = require('./lib/option')
 const MenuStep = require('./lib/menu')
 const { respond, version } = require('./lib/bot')
 const { User } = require('./lib/user')
-const firebase = require('./lin/firebase')
+const firebase = require('./lib/firebase')
 
 
 module.exports = {
